@@ -68,7 +68,7 @@ class ParseError(Exception):
         self.lineno = lineno
 
 
-class Value(object):
+class Value:
     """Class representing a value and its modifiers in the OBO file
 
     This class has two member variables. `value` is the value itself,
@@ -97,7 +97,7 @@ class Value(object):
                                self.value, self.modifiers)
 
 
-class Stanza(object):
+class Stanza:
     """Class representing an OBO stanza.
 
     An OBO stanza looks like this::
@@ -142,7 +142,7 @@ class Stanza(object):
                                self.name, self.tags)
 
 
-class Parser(object):
+class Parser:
     """The main attraction, the OBO parser."""
 
     def __init__(self, fp):
@@ -275,19 +275,3 @@ class Parser(object):
                 stanza.tags[tag] = [value]
 
     def __iter__(self): return self.stanzas()
-
-
-def test():
-    fp = open("go.obo")
-    parser = Parser(fp)
-    count = 0
-    for stanza in parser:
-        count += 1
-        if count % 1000 == 0:
-            print("%d stanzas processed" % count)
-    print("Parsing successful, %d stanzas" % count)
-
-
-if __name__ == "__main__":
-    import sys
-    sys.exit(test())

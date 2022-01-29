@@ -1,8 +1,9 @@
-from Utils import ColourClass, FancyApp, ProgressBar
-from GOTool import AnnotationParser
-
 import datetime
 import os
+
+from Utils import ColourClass, FancyApp
+
+from GOTool import AnnotationParser
 
 __author__ = 'Mateo Torres'
 __email__ = 'Mateo.Torres.2015@live.rhul.ac.uk'
@@ -27,7 +28,6 @@ class GOAHistory(FancyApp):
                                                  self.organism)
         self.tell('Filtering annotations, keeping only annotations before',
                   self.year)
-        counter = 0
         fname = os.path.join(self.output_dir, self.organism + '.gaf.' +
                              str(self.year))
         outfile = open(fname, 'w')
@@ -42,6 +42,3 @@ class GOAHistory(FancyApp):
                     outfile.write(f'{annotation.go_id}\t'
                                   f'{annotation.db_object_id}\n')
         outfile.close()
-
-
-

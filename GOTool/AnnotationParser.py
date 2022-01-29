@@ -39,7 +39,7 @@ __version__ = "0.1"
 __all__ = ["Annotation", "AnnotationFile"]
 
 
-class Annotation(object):
+class Annotation:
     """Class representing a GO annotation (possibly parsed from an
     annotation file).
 
@@ -132,7 +132,7 @@ class Annotation(object):
         return "%s(%s)" % (self.__class__.__name__, params)
 
 
-class AnnotationFile(object):
+class AnnotationFile:
     """A parser class that processes GO annotation files"""
 
     def __init__(self, fp, organism_name):
@@ -172,7 +172,7 @@ class AnnotationFile(object):
                 # part of the line is actually a newline and three tab
                 line = line[0:-2] + self.organism_name
                 yield Annotation(line)
-            except TypeError as ex:
+            except TypeError:
                 raise SyntaxError("cannot parse annotation", self.lineno)
 
     def __iter__(self):

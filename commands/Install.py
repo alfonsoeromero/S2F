@@ -349,7 +349,7 @@ class Install(FancyApp.FancyApp):
 
         # filter evidence codes using awk
         experimental_goa = self.uniprot_goa.split('.gz')[0] + '.exp'
-        command = "awk '$6~/" + '|'.join(self.evidence_codes)+"/{print $0}' " + \
+        command = "awk '$6~/" + '|'.join(self.evidence_codes)+"/{print $0}' " +\
                   self.uniprot_goa.split('.gz')[0] + " > " + experimental_goa
         subprocess.call(command, shell=True)
 
@@ -360,9 +360,9 @@ class Install(FancyApp.FancyApp):
         fg = open(self.filtered_goa, 'w')
         i = 0
         for line in open(experimental_goa, 'r'):
-            i+=1
+            i += 1
             if i % 10000 == 0:
-                self.tell('Process:', i/num_lines*100.0,'%')
+                self.tell('Process:', i/num_lines*100.0, '%')
             if not line.startswith('!'):
                 fields = line.split('\t')
                 if fields[1] in ids:

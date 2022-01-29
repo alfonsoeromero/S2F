@@ -3,7 +3,7 @@ import time
 from Utils import ColourClass
 
 
-class FancyApp(object):
+class FancyApp:
 
     def __init__(self):
         self.colour = ColourClass.bcolors.BOLD_BLUE

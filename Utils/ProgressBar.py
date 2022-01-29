@@ -23,7 +23,7 @@
 import sys
 
 
-class ProgressBar(object):
+class ProgressBar:
     def __init__(self, min_value=0, max_value=100, width=77, **kwargs):
         self.previous = str()
         self.char = kwargs.get('char', '#')
