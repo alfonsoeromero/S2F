@@ -1,4 +1,5 @@
 [![DOI](https://zenodo.org/badge/190786075.svg)](https://zenodo.org/badge/latestdoi/190786075)
+[![Maintainability](https://api.codeclimate.com/v1/badges/ca629ba60c956cf0584d/maintainability)](https://codeclimate.com/github/alfonsoeromero/S2F/maintainability)
 
 # S2F (Sequence to Function)
 
